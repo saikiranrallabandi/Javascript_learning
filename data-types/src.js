@@ -409,7 +409,7 @@ function testLogicalAnd(val) {
 console.log(testLogicalAnd(124));
 //Gold code
 var names = ["Hole-in-one", "Eagle", "Birdie", "Par", "Bogey", "Double Bogey"]
-    //Switch statements
+    //Switch statements insted of chain if else we can use switch
 
 function caseInSwitch(val) {
     var answer = "";
@@ -562,6 +562,7 @@ var myStorage = {
 };
 
 var gloveBoxContents = myStorage.car.inside["passenger seat"];
+``
 console.log(gloveBoxContents);
 
 //Accessing Nested Arrays
@@ -884,6 +885,26 @@ const squareList = (arr) => {
 };
 const squaredIntegers = squareList(realNumberArray);
 console.log(squaredIntegers);
+
+
+const myArray = [1, 2, 3, 4];
+myArray.forEach((item, index) => {
+    console.log(item, index)
+});
+
+const doubled = myArray.map(item => item * 2)
+console.log(doubled);
+
+const int = myArray.filter(num => num % 2 === 0);
+console.log(int)
+
+const sum = myArray.reduce((result, item) => x = result + item);
+console.log(sum);
+
+
+
+
+
 //example-2
 const increment = (function() {
     return function increment(number, value = 1) {
@@ -909,6 +930,15 @@ let arr2;
     arr2 = [...arr1];
     arr1[0] = 'potato';
 })();
+console.log(arr2);
+
+const arr1 = ['JAN', 'FEB', 'MAR', 'APR', 'MAY'];
+let arr2;
+(() => {
+    arr2 = [...arr1];
+    arr1[0] = 'potato';
+})();
+
 console.log(arr2);
 
 //Use Destructive Assignment to Assign Variables from Objects
@@ -1199,92 +1229,12 @@ console.log("saikiran rallabandi".replace(/(\w+)\s(\w+)/, '$2 $1'));
 
 //Remove Whitespace from start and end
 
+// Asynchronous JavaScript
+
 /*
-Asynchronous Promises Callbacks
+Timeouts and intervals
+Callbacks
+Promises
+async await
+Event loop
 */
-// Asynchronous allows you to break the big task into the smaller tasks
-
-console.log(" I ");
-console.log(" eat ");
-console.log(" with a ");
-console.log(" spoon ");
-setTimeout(() => { console.log(" Ice Cream") }, 4000);
-
-// callbacks are calling a function into another function --> connection to a function
-
-// const one = (call_two) => {
-//     console.log(" setp1 ");
-//     call_two();
-// }
-
-// const two = () => {
-//     console.log(" step 2 ");
-// }
-
-// one(two);
-
-// let stocks = {
-//     Fruits: ["strawberry", "grapes", "banana", "apple"],
-//     liquid: ["water", "ice"],
-//     holder: ["cone", "cup", "stick"],
-//     toppings: ["choclate", "peanuts"]
-// };
-
-// let order = (Fruit_name, call_production) => {
-//     setTimeout(() => {
-//         console.log(`${stocks.Fruits[Fruit_name]} was selected`);
-//     }, 2000);
-//     call_production;
-// }
-
-
-// let production = () => {
-//     setTimeout(() => {
-//         console.log("production has started")
-//     }, 0000)
-// };
-
-
-// order(0, production);
-
-/* Promises */
-
-
-let stocks = {
-    Fruits: ["strawberry", "grapes", "banana", "apple"],
-    liquid: ["water", "ice"],
-    holder: ["cone", "cup", "stick"],
-    toppings: ["choclate", "peanuts"]
-};
-
-let is_shop_open = false;
-
-let order = (time, work) => {
-    return new Promise((resolve, reject) => {
-        if (is_shop_open) {
-            setTimeout(() => {
-                resolve(work());
-            }, time);
-        } else {
-            reject(console.log("our shop is closed"));
-        }
-
-    })
-}
-
-order(2000, () => console.log(`${stocks.Fruits[0]} was selected`))
-    .then(() => {
-        return order(0000, () => console.log("Production has strated"));
-    })
-
-.then(() => {
-    return order(2000, () => console.log("the fruit was chopped"))
-})
-
-.catch(() => {
-    console.log("Customer left");
-})
-
-.finally(() => {
-    console.log("Day ended shop is closed");
-})
