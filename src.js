@@ -1229,12 +1229,6 @@ console.log("saikiran rallabandi".replace(/(\w+)\s(\w+)/, '$2 $1'));
 
 //Remove Whitespace from start and end
 
-// Asynchronous JavaScript
+// Asynchronous JavaScript 
 
-/*
-Timeouts and intervals
-Callbacks
-Promises
-async await
-Event loop
-*/
+// in its most basic form, Javascript is a synchronous, blocking, single-threaded language
