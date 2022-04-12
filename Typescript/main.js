@@ -21,3 +21,36 @@ var randomvalue = 10;
 randomvalue = true;
 randomvalue = "saikiran";
 var myVariable = 10;
+function hasName(obj) {
+    return !!obj &&
+        typeof obj === "object" &&
+        "name" in obj;
+}
+if (hasName(myVariable)) {
+    console.log(myVariable.name);
+}
+// (myVariable as string).toUpperCase();
+var multiType;
+multiType = 20;
+multiType = true;
+var add = function (num1, num2) { return num1 + num2; };
+var fullname = function (person) {
+    console.log("".concat(person.firstName, " ").concat(person.lastName));
+};
+var p = {
+    firstName: 'Saikiran',
+    lastName: "rallabandi"
+};
+fullname(p);
+var Employee = /** @class */ (function () {
+    function Employee(name) {
+        this.employeeName = name;
+    }
+    Employee.prototype.greet = function () {
+        console.log("Good Morning ".concat(this.employeeName, " "));
+    };
+    return Employee;
+}());
+var emp1 = new Employee('sai');
+console.log(emp1.employeeName);
+emp1.greet();
